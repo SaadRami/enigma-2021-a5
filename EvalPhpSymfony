@@ -1,0 +1,15 @@
+PHP/Symfony
+
+1) – Déclarer deux constantes de type int REGULAR_RATIO, FAST_RATIO, dans la classe Player ensuite, leurs attribuer respectivement les valeur 400 et 1200.
+2) – Modifier la méthode « __construct » et renseigner REGULAR_RATIO.
+3) - Surcharger la méthode « __construct » définie dans la classe 'Player' et faire en sorte que le player est construit avec FAST_RATIO (ou alors créer une autre classe ‘FastPlayer’ qui implémente l’interface Player, étant donné que dans le projet les paramètres sont définies par des interfaces, ce qui permet de donner une flexibilité au code dans le sens ou on peut renseigner quelconque classe concrète du moment qu’elle implémente PlayerInterface, mais comme il n’y a pas énormément de différence en terme de comportement entre RegularPlayer et FastPlayer, il convient de garder une seule classe d’implémentation)
+4) – Surcharger la méthode updateRatioAgainst -> updateRatioAgainstFast et y définir un comportement spécifique aux players participants à une compétition rapide puis multiplier la valeur retournée par 3.
+5) - Créer une classe abstraite ( on pourrait passer par une interface, mais étant donné que la plupart des comportements de RegularLobby est similaire à ceux de FastLobby, il convient de passer par une classe abstraite, cela va nous permettre de réduire la quantité de code) « BaseLobby » dans laquelle on définit l’intégralité des comportements de la classe existante Lobby.
+6) – Créer une classe « RegularLobby » et la faire étendre de la classe BaseLobby 
+7) – Créer une classe « FastLobby » et la faire étendre de la classe BaseLobby tout en ajoutant des états spécifiques à la compétition rapide à savoir : 
+      - boolean : isOn (pour déterminer si la compétition est débutée ou non) ;
+      - date : startDate (variable contenant la date de création du lobby )
+      - int : daysLeft (détermine le nombre de jour restant pour que la compétition soit terminée)
+      - int : getDaysLeft (Permet de calculer le nombre de jour restant = startDate + 30 – currentDate)
+8) - Ajouter un bouton 'Inscription à une compétition rapide' au niveau de la page html, y associer un event click qui fait appel au comportement qui va enregistrer le Player dans la compétition rapide.
+9) - Définir un comportement qui permet d'activer/désactiver l'event click associé au bouton Inscription en fonction de l’état de la compétition (isOn)
